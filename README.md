@@ -4,6 +4,7 @@ Portfolio for Natural Language Processing Projects (at the behest of Karen Mazid
 
 
 ## Contents
+* [Overview of NLP](https://github.com/Hikaito/NLP_Portfolio/blob/main/Other/Overview%20of%20NLP.pdf)
 
 ## Links
 * host: https://hikaito.github.io/NLP_Portfolio
