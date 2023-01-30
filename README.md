@@ -7,7 +7,7 @@ Portfolio for Natural Language Processing Projects (at the behest of Karen Mazid
 * [Index Page](https://hikaito.github.io/NLP_Portfolio) :  (You Are Here)
 * [Overview of NLP](https://github.com/Hikaito/NLP_Portfolio/blob/main/Other/Overview%20of%20NLP.pdf)
 : Introduction to NLP
-* [Text Processing](https://github.com/Hikaito/NLP_Portfolio/blob/main/README.md)
+* [Text Processing](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_1/README.md)
 : Script that processes a data file into class objects
 
 ## Additional Resources
