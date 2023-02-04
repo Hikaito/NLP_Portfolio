@@ -8,7 +8,7 @@ import sys
 import re
 
 # local file name for pickle file
-pickle_file = "out.p"
+pickle_file = "out.pickle"
 
 
 class Person:

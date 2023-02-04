@@ -12,7 +12,7 @@ The script can be tested with the prompt `main.py [filepath for datafile]` from 
 An example of this in the presented project would be `main.py data\data.csv` in a Windows environment.
 From a command line in the directory, this would be `Python3 main.py data\data.csv`.
 
-The script produces a pickle file whose default name is `out.p`; the global variable `pickle_file`
+The script produces a pickle file whose default name is `out.pickle`; the global variable `pickle_file`
 can be changed to export to a different filename or absolute path location.
 
 The input file is expected to be a comma separated file with lines in the format `Last,First,Middle Initial,ID,Office Phone` for 5 elements
