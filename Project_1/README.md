@@ -1,6 +1,5 @@
 # Text Processing in Python
 
-### Use
 * [Python Text Processing Script](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_1/main.py)
 
 This script reads comma separated values from a datafile given as a system argument
