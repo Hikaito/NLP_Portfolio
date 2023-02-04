@@ -30,7 +30,7 @@ class Person:
         self.last = last
         self.first = first
         self.mi = mi
-        self.id_in = id_in
+        self.id_in = id_in  # note: naming this field 'id' will shadow an existing built-in variable
         self.phone = phone
 
     def __str__(self):
@@ -234,27 +234,30 @@ def main():
         print("Expected 1 sys.argv, received " + str(len(sys.argv) - 1) + "; Exiting program.")
         sys.exit("Too many arguments")
 
-    # continue to code if there is one argument
-    path = os.path.join(os.getcwd(), sys.argv[1])
+    else:
+        # continue to code if there is one argument
 
-    # validate file exists; exit if not found
-    if not os.path.exists(path):
-        print("File " + path + " was not found. Exiting program.")
-        sys.exit("nonexistent file")
+        #get path of file from input and current working directory
+        path = os.path.join(os.getcwd(), sys.argv[1])
 
-    # process file
-    people = process_input(path)
+        # validate file exists; exit if not found
+        if not os.path.exists(path):
+            print("File " + path + " was not found. Exiting program.")
+            sys.exit("nonexistent file")
 
-    # pickle the file
-    pickle.dump(people, open(pickle_file, 'wb'))  # save binary pickle file
+        # process file into a dictionary of person objects
+        people = process_input(path)
 
-    # open the pickled file
-    from_pickle = pickle.load(open(pickle_file, 'rb'))  # read binary pickle file
+        # pickle the file
+        pickle.dump(people, open(pickle_file, 'wb'))  # save binary pickle file
 
-    # confirm file's contents by displaying
-    for person in from_pickle:
-        from_pickle[person].display()
-        print("")
+        # open the pickled file
+        from_pickle = pickle.load(open(pickle_file, 'rb'))  # read binary pickle file
+
+        # confirm file's contents by displaying in display format
+        for person in from_pickle:
+            from_pickle[person].display()
+            print("")
 
 
 # executes main function
