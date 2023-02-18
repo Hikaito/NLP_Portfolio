@@ -26,21 +26,21 @@ def run_game(input_list: list[str]):
 
     # type check input for being a list
     if type(input_list) != list:
-        print("ERROR: run_gam() requires a list as a parameter.")
+        print("ERROR: run_game() requires a list as a parameter.")
         return
 
     # type check input for having at least one item
     if len(input_list) < 1:
-        print("ERROR: run_gam() requires a list with at least one element.")
+        print("ERROR: run_game() requires a list with at least one element.")
         return
 
     # type check input for being a list of strings
     for token in input_list:
         if type(token) != str:
-            print("ERROR: run_gam() requires a list composed only of string types (str).")
+            print("ERROR: run_game() requires a list composed only of string types (str).")
             return
         if not token:
-            print("ERROR: run_gam() expects a list with no empty strings.")
+            print("ERROR: run_game() expects a list with no empty strings.")
             return
 
     # force wordlist to be lowercase
