@@ -8,6 +8,7 @@ The text file is parsed into tokens.
 Tokens are all formatted to lowercase for accuracy in counting.
 The wordset used for the game is composed of only the 50 most frequent tokens that are longer than 5 characters not in the NLTK stopword list with only alphabetic components and are lemmatized.
 During the word generation process, lexical diversity is calculated at several points.
+Please note that the program expects there to be at least 50 unique noun tokens in the input text.
 
 The game asks users to guess the letters in a word; it displays correct and incorrect guesses.
 The game tracks the rounds the user has won.
