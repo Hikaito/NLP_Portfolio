@@ -39,41 +39,56 @@ def run_game(input_list: list[str]):
         if type(token) != str:
             print("ERROR: run_gam() requires a list composed only of string types (str).")
             return
+        if not token:
+            print("ERROR: run_gam() expects a list with no empty strings.")
+            return
+
+    # force wordlist to be lowercase
+    input_list = [token.lower() for token in input_list]
+
+    # print game header
+    print("\n\n<<<===  Word Guessing Game ===>>>")
+    print("Ready? Begin.")
 
     score = 5
     user_in = ""
-    round_count = 1
+    round_count = 0
     # loop while score is positive and escape character isn't met
     while score > 0 and user_in != "!":
         # round start ------------------------------
-        print("============\nRound {}\n".format(round_count))
+        print("============\nRound {}\n".format(round_count + 1))
 
+        # collect a random word, prepare the word guess arrays
         random_word = input_list[randint(0, 49)]
         random_word_clone = "_" * len(random_word)
-        reject_letters = ""     # collects failed guesses
+        reject_letters = ""   # collects failed guesses
         success_guesses = ""  # collects successful guesses
 
         # guess loop ------------------------------
         # repeat guess loop while input is not to exit or the word is not complete
-        while user_in != "!" and '_' in random_word_clone:
+        while '_' in random_word_clone:
+            # print the word being guessed
             print("Word:\n\t" + random_word_clone)
+
+            # if there are letters in the rejects list, prepare and display the failed letters guessed line
             # print list of failed letters, if applicable
             if reject_letters:
                 reject_print = ""
                 for letter in reject_letters:
-                    reject_print += "'{}', ".format(letter)
+                    reject_print += "{}, ".format(letter)
                 reject_print = reject_print[:-2]
-                print("Letters guessed: {}".format(reject_print))
-            user_in = input("Enter a letter: ")  # get user input
+                print("Incorrect letters guessed: {}".format(reject_print))
+
+            # get user input
+            user_in = input("Guess a letter: ")
 
             # if input was exit, exit
             if user_in == "!":
-                print("Game over: all letters exhausted. Word was '{0}'. Final score: {1}".format(random_word, score))
-                print("Game Ended. \nFinal Score: {0}\nRounds Won:{1}".format(score, round_count - 1))
+                print("\n\nGame Ended. Word was '{2}'.\nFinal Score: {0}\nRounds Won: {1}".format(score, round_count, random_word))
                 return
 
-            # reject user input that is not a single character; restart input loop
-            if len(user_in) != 1:
+            # reject user input that is not a single character and is not alpha; restart input loop
+            if len(user_in) != 1 or not user_in.isalpha():
                 print("Please enter a single character.")
                 continue
 
@@ -84,14 +99,13 @@ def run_game(input_list: list[str]):
             if user_in in reject_letters or user_in in success_guesses:
                 # if all 26 letters have been exhausted, end the game
                 if (len(reject_letters) + len(success_guesses)) >= 26:
-                    print("Game over: all letters exhausted. Word was '{0}'. Final score: {1}".format(random_word, score))
-                    print("Game Ended. \nFinal Score: {0}\nRounds Won:{1}".format(score, round_count - 1))
+                    print("\n\nGame Ended: all letters exhausted. Word was '{2}'.\nFinal Score: {0}\nRounds Won: {1}".format(score, round_count, random_word))
                     return
                 # if not all words exhausted, demand new input and restart input loop
-                print("'{}' has already been guessed. Try again.".format(user_in))
+                print("'{}' has already been guessed. Try again. Score is {}".format(user_in, score))
                 continue
 
-            # if the input was in the word, add to score and the display word
+            # if the input was in the word, add to the score
             if user_in in random_word:
                 for i in range(len(random_word)):
                     if random_word[i] == user_in:
@@ -103,62 +117,63 @@ def run_game(input_list: list[str]):
                 # if letter was not in word, decrement score
                 score -= 1
                 reject_letters += user_in
+                print("Incorrect guess. Score is now {0}".format(score))
                 # if score is 0, end game
-                if score <= 1:
-                    print("Score reached 0; Game Over.")
+                if score < 1:
+                    print("\n\nGame Ended: score reached zero. Word was '{2}'.\nFinal Score: {0}\nRounds Won: {1}".format(score, round_count, random_word))
                     return
 
             # print spacer
             print("============")
 
+        #------logic for completed a round------
+
+        # print user message
+        print("Word '{}' successfully guessed.".format(random_word))
+
+        # increment round
+        round_count += 1  # increment rounds
+
         # loop reset ------------------------------
         print("---Press any key to continue or '!' (at any time) to exit---")
         user_in = input()
 
-        round_count += 1  # increment rounds
+        # exit if '!'
+        if user_in == "!":
+            break
 
     # Exit screen
-    print("Game Ended. \nFinal Score: {0}\nRounds Won:{1}".format(score, round_count - 1))
+    print("\n\nGame Ended. \nFinal Score: {0}\nRounds Won: {1}".format(score, round_count))
 
 def tokenize(text: str) -> tuple[list[str], list[str]]:
     """
-    Calculate tokens and nouns
-    Collects tokens and nouns from input text and prints lexical diversity
+    Collects tokens and nouns from input text and prints lexical diversity and other statistics in the process
     Input:
         text (str) is the contents to tokenize
     Output:
         list of tokens (str): list of strings of raw tokens parsed from text
-        list of nouns (str): list of strings of nouns in the text (with duplicates permitted)
+        list of nouns (str): list of strings of lowercase nouns in the text (with duplicates permitted)
     Example:
         >>>tokenize("This is a string")
-        >>>[['This', 'is', 'a', 'string'], ['string']]
+        >>>[['This', 'is', 'a', 'String'], ['string']]
     """
+    # -----------------------------------------------------
+
+    # lowercase the text
+    text = text.lower()
+
     # collect words as tokens
     tokens = word_tokenize(text)
-
-    # convert to lowercase
-    tokens = [token.lower() for token in tokens]
 
     # -----------------------------------------------------
     # calculate lexical diversity and output it (I)
     # -----------------------------------------------------
-    lex_diversity = {}
-
-    # count instances of each token: if not in dict, add 1 instance. If token is key in dict, increment
-    for item in tokens:
-        if item in lex_diversity:
-            lex_diversity[item] = lex_diversity[item] + 1
-        else:
-            lex_diversity[item] = 1
-
-    # calculate lexical diversity: get a sum of all tokens and then divide by the token count
-    lex_diversity_count = 0
-    for item in lex_diversity:
-        lex_diversity_count += lex_diversity[item]
-    lex_diversity_score = len(lex_diversity) / lex_diversity_count
+    # calculate score
+    token_set = set(tokens)
+    lex_diversity_score = len(token_set) / len(tokens)
 
     # print the diversity score
-    print("Lexical Diversity of raw tokens: {:.2f}".format(lex_diversity_score))
+    print("Lexical Diversity of tokens (lowercased) to number of tokens: {:.2f}".format(lex_diversity_score))
 
     # -----------------------------------------------------
     # reduce tokens to only those that are alphabetic with size greater than 5 and not in the NLTK stopword list
@@ -166,52 +181,43 @@ def tokenize(text: str) -> tuple[list[str], list[str]]:
     # get stopwords
     stop_set = stopwords.words('english')
 
-    # evict all tokens that are not alphabetic
+    # evict all tokens that are not alphabetic, longer than 5, and not in the stop word set
     tokens_limited = [token for token in tokens if (token.isalpha() and len(token) > 5 and token not in stop_set)]
 
     # -----------------------------------------------------
     # calculate lexical diversity and output it (II)
     # -----------------------------------------------------
-    lex_diversity = {}
-
-    # count instances of each token: if not in dict, add 1 instance. If token is key in dict, increment
-    for item in tokens_limited:
-        if item in lex_diversity:
-            lex_diversity[item] = lex_diversity[item] + 1
-        else:
-            lex_diversity[item] = 1
-
-    # calculate lexical diversity: get a sum of all tokens and then divide by the token count
-    lex_diversity_count = 0
-    for item in lex_diversity:
-        lex_diversity_count += lex_diversity[item]
-    lex_diversity_score =  len(lex_diversity) / lex_diversity_count
+    # calculate score
+    token_set = set(tokens_limited)
+    lex_diversity_score = len(token_set) / len(tokens)
 
     # print the diversity score
-    print("Lexical Diversity of screened but unlemmatized tokens: {:.2f}".format(lex_diversity_score))
+    print("Lexical Diversity of screened but unlemmatized tokens to total tokens: {:.2f}".format(lex_diversity_score))
+
+    # calculate score
+    lex_diversity_score = len(token_set) / len(tokens_limited)
+
+    # print the diversity score
+    print("Lexical Diversity of screened but unlemmatized tokens to number of unlemmatized tokens: {:.2f}".format(lex_diversity_score))
 
     # -----------------------------------------------------
     # lemmatize the tokens; create a set of unique lemmas
     # -----------------------------------------------------
 
-    word_lemmatizer = WordNetLemmatizer()
-    lemmas = [word_lemmatizer.lemmatize(token) for token in tokens_limited]
+    word_lemmatize = WordNetLemmatizer()
+    lemmas = [word_lemmatize.lemmatize(token) for token in tokens_limited]
 
     # -----------------------------------------------------
-    # perform pos tagging on the unique lemmas and print the first 20 tagged
+    # perform pos tagging on the unique lemmas
     # -----------------------------------------------------
     unique_lemmas = set(lemmas)
 
     tagged = nltk.pos_tag(unique_lemmas)
 
-    # print
-    print("POS tagging for 20 of the unique lemmas:")
-    print(tagged[0:20])
-
     # -----------------------------------------------------
     # extract tokens that are nouns
     # -----------------------------------------------------
-    # get dictionary for series
+    # get dictionary for unique lemmas
     lemma_dict = {}
     for token_pair in tagged:
         lemma_dict[token_pair[0]] = token_pair[1]
@@ -222,28 +228,28 @@ def tokenize(text: str) -> tuple[list[str], list[str]]:
     # -----------------------------------------------------
     # calculate lexical diversity and output it (III)
     # -----------------------------------------------------
-    lex_diversity = {}
-
-    # count instances of each token: if not in dict, add 1 instance. If token is key in dict, increment
-    for item in nouns:
-        if item in lex_diversity:
-            lex_diversity[item] = lex_diversity[item] + 1
-        else:
-            lex_diversity[item] = 1
-
-    # calculate lexical diversity: get a sum of all tokens and then divide by the token count
-    lex_diversity_count = 0
-    for item in lex_diversity:
-        lex_diversity_count += lex_diversity[item]
-    lex_diversity_score =  len(lex_diversity) / lex_diversity_count
+    # calculate score
+    token_set = set(nouns)
+    lex_diversity_score = len(token_set) / len(tokens)
 
     # print the diversity score
-    print("Lexical Diversity of Nouns: {:.2f}".format(lex_diversity_score))
+    print("Lexical Diversity of nouns to total tokens: {:.2f}".format(lex_diversity_score))
+
+    # calculate again
+    lex_diversity_score = len(token_set) / len(nouns)
+
+    # print the diversity score
+    print("Lexical Diversity of nouns to number of nouns: {:.2f}".format(lex_diversity_score))
 
     # -----------------------------------------------------
-    # print tokens and nouns count
+    # print 20 tagged lemmas, and the token and noun count
     # -----------------------------------------------------
-    print("Total tokens: {0}\nLemmatized Nouns Number: {1}".format(len(tokens), len(nouns)))
+    # print the first 20 tagged lemmas
+    print("POS tagging for 20 of the unique lemmas:")
+    print(tagged[0:20])
+
+    print("Total Tokens: {0}\nTotal Lemmatized Nouns: {1}".format(len(tokens), len(nouns)))
+    print("Total Unique tokens: {0}\nTotal Unique Nouns: {1}".format(len(set(tokens)), len(set(nouns))))
 
     # -----------------------------------------------------
     # return tokens (raw) and nouns (processed)
@@ -317,7 +323,6 @@ def main():
                 # if insertion point valid, insert and pass down until all things are sorted
                 if i < 50:
                     insert = [key, value]
-                    remove = ["", 0]
                     while i < 50:
                         removed = common_nouns[i]
                         common_nouns[i] = insert

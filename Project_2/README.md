@@ -6,12 +6,12 @@
 The text game accepts a text file argument.
 The text file is parsed into tokens.
 Tokens are all formatted to lowercase for accuracy in counting.
-The wordset used for the game is composed of only the 50 most frequent tokens that are longer than 5 characters not in the NLTK stopword list with only alphabetic components and are lemmatized.
+The wordset used for the game is composed of only the 50 most frequent lemmatized tokens tagged as nouns that are longer than 5 characters not in the NLTK stopword list with only alphabetic components.
 During the word generation process, lexical diversity is calculated at several points.
-Please note that the program expects there to be at least 50 unique noun tokens in the input text.
+Please note that the program expects there to be at least 50 unique noun tokens in the input text or the game portion will not work.
 
 The game asks users to guess the letters in a word; it displays correct and incorrect guesses.
-The game tracks the rounds the user has won.
+The game tracks the rounds the user has won and the current score, a metric of correct and incorrect guesses.
 The game ends when the user enters the `!` token.
 
 ## Use
@@ -27,4 +27,4 @@ Text used for game sourced from OpenStax Anatomy and Physiology textbook (to my 
 
 Distributed under [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
 
-Access for free at https://openstax.org/books/anatomy-and-physiology/pages/1-introduction
+Access for free [here](https://openstax.org/books/anatomy-and-physiology/pages/1-introduction)
