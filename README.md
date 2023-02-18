@@ -9,6 +9,8 @@ Portfolio for Natural Language Processing Projects (at the behest of Karen Mazid
 : Introduction to NLP
 * [Text Processing](https://github.com/Hikaito/NLP_Portfolio/tree/main/Project_1)
 : Script that processes a data file into class objects
+* [Word Guessing Game](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_2/README.md)
+: Game for generating a word guessing game from a text file
 
 ## Additional Resources
 * [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)

@@ -1,6 +1,6 @@
 # Text Game in Python
 
-[Game Code]
+[Game Code](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_2/main.py)
 
 ## Summary
 The text game accepts a text file argument.
