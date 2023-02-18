@@ -2,6 +2,8 @@
 
 [Game Code](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_2/main.py)
 
+Note that this requires the use of NLTK
+
 ## Summary
 The text game accepts a text file argument.
 The text file is parsed into tokens.
