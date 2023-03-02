@@ -13,6 +13,8 @@ Portfolio for Natural Language Processing Projects (at the behest of Karen Mazid
 : Game for generating a word guessing game from a text file
 * [WordNet and Word Relations](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_3/WordNet_Project.ipynb)
 : Demonstration of WordNet tools for word relations
+* [N-gram Language Classification](https://github.com/Hikaito/NLP_Portfolio/tree/main/Project_4)
+: Language classification task using unigram and bigram probabilities
 
 ## Additional Resources
 * [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
