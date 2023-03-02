@@ -2,6 +2,10 @@
 This program classifies text language based on unigram and bigram presence in a language training corpus.
 This program is divided into two parts.
 
+* [Part 1 Code](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_4/n-gram-language-model/part1.py)
+* [Part 2 Code]()
+* [More about N-Grams](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_4/N-Grams.pdf)
+
 ## Part 1
 The first portion of this program reads from three language training files and creates pickle files of the counts of each unigram and bigram.
 The program lowercases all tokens before calculations take place and sets all arabic integer numbers to `"NUM"`" instead.
