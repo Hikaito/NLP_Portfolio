@@ -15,6 +15,8 @@ Portfolio for Natural Language Processing Projects (at the behest of Karen Mazid
 : Demonstration of WordNet tools for word relations
 * [N-gram Language Classification](https://github.com/Hikaito/NLP_Portfolio/tree/main/Project_4)
 : Language classification task using unigram and bigram probabilities
+* [Sentence Parsing Methods](https://github.com/Hikaito/NLP_Portfolio/blob/main/Other/Sentence%20Parsing.pdf)
+: Overview of sentence parsing methods with a test sentence
 
 ## Additional Resources
 * [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
