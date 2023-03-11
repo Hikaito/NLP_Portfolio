@@ -17,6 +17,8 @@ Portfolio for Natural Language Processing Projects (at the behest of Karen Mazid
 : Language classification task using unigram and bigram probabilities
 * [Sentence Parsing Methods](https://github.com/Hikaito/NLP_Portfolio/blob/main/Other/Sentence%20Parsing.pdf)
 : Overview of sentence parsing methods with a test sentence
+* [Web Scraper](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_5/README.md)
+: Example project for generating corpus from data available on the internet.
 
 ## Additional Resources
 * [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
