@@ -1,4 +1,6 @@
 # N-Gram Language Classification
+This project was built as a collaboration of myself and [Henry Kim](https://github.com/6henrykim).
+
 This program classifies text language based on unigram and bigram presence in a language training corpus.
 This program is divided into two parts.
 
