@@ -19,6 +19,8 @@ Portfolio for Natural Language Processing Projects (at the behest of Karen Mazid
 : Overview of sentence parsing methods with a test sentence
 * [Web Scraper](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_5/README.md)
 : Example project for generating corpus from data available on the internet.
+* [Text Classification](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_6/book_classification.ipynb)
+: Identify user input text as most similar to one of two books.
 
 ## Additional Resources
 * [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
