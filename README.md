@@ -21,6 +21,8 @@ Portfolio for Natural Language Processing Projects (at the behest of Karen Mazid
 : Example project for generating corpus from data available on the internet.
 * [Text Classification](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_6/book_classification.ipynb)
 : Identify user input text as most similar to one of two books.
+* [ACL Paper Summary](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_7/ACL_Paper_Summary.pdf)
+: An overview of a paper published to [ACL](https://aclanthology.org/); Collaboration with [Henry Kim](https://github.com/6henrykim)
 
 ## Additional Resources
 * [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
