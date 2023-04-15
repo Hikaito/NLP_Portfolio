@@ -23,6 +23,9 @@ Portfolio for Natural Language Processing Projects (at the behest of Karen Mazid
 : Identify user input text as most similar to one of two books.
 * [ACL Paper Summary](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_7/ACL_Paper_Summary.pdf)
 : An overview of a paper published to [ACL](https://aclanthology.org/); Collaboration with [Henry Kim](https://github.com/6henrykim)
+* [Chatbot](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_8/chatbot.pdf)
+: A chatbot designed to assist a user in exploring the ACL databse; Collaboration with [Henry Kim](https://github.com/6henrykim)
+  * uses Python 3.9+
 
 ## Additional Resources
 * [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
