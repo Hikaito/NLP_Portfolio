@@ -26,7 +26,9 @@ Portfolio for Natural Language Processing Projects (at the behest of Karen Mazid
 * [Chatbot](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_8/chatbot.pdf)
 : A chatbot designed to assist a user in exploring the ACL databse; Collaboration with [Henry Kim](https://github.com/6henrykim)
   * uses Python 3.9+
+* [Text Classification with Deep Learning](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_9/book_classification_part_2.ipynb)
+: A continuation of [Text Classification](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_6/book_classification.ipynb); identifies which corpus a sentence came from based on learning a model of a vector representation of a sentence.
 
-## Additional Resources
+## Additional Resources (beyond this portfolio)
 * [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
 * note: Github does not like spaces in filenames
