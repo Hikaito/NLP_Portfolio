@@ -1,7 +1,11 @@
 # NLP_Portfolio
-Portfolio for Natural Language Processing Projects (at the behest of Karen Mazidi)
+Portfolio for Natural Language Processing Projects (NLP), created at the behest of Karen Mazidi.
 
+This portfolio focuses on a wide variety of skills used in NLP, such as text classification, tokenization, parsing, corpus generation, machine learning models, web scraping, and chatbot generation. See more about the [Skills Used here](https://github.com/Hikaito/NLP_Portfolio/blob/main/Other/skills.md).
 
+I think NLP is an important skill to master when looking to develop systems for human interaction or when analyzing data. NLP is an interesting and exciting field of research that people are actively exploring that will soon be an important part of our technologically-driven lives, as recent developments with conversational bot research have shown (such as Chat GPT 4). In the future, I would like to do more work with tensorflow and explore more complex models of language prediction, such as a chatbot semantic analyzer that uses morphological and synset analysis to generalize ideas presented by a user instead of relying on rules-based approaches for reliably responding to user commands. I plan to keep up with this rapidly changing field by adding new projects to this portfolio as I find new dimensions of NLP to explore.
+
+I am not currently looking for a job rooted solely in the field of NLP, but I would not be opposed to accepting a position that incorporated concepts of NLP with other aspects of system design.
 
 ## Contents
 * [Index Page](https://hikaito.github.io/NLP_Portfolio) :  (You Are Here)
@@ -28,7 +32,3 @@ Portfolio for Natural Language Processing Projects (at the behest of Karen Mazid
   * uses Python 3.9+
 * [Text Classification with Deep Learning](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_9/book_classification_part_2.ipynb)
 : A continuation of [Text Classification](https://github.com/Hikaito/NLP_Portfolio/blob/main/Project_6/book_classification.ipynb); identifies which corpus a sentence came from based on learning a model of a vector representation of a sentence.
-
-## Additional Resources (beyond this portfolio)
-* [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
-* note: Github does not like spaces in filenames
